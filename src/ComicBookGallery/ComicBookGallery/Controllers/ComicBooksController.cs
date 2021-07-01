@@ -8,7 +8,7 @@ namespace ComicBookGallery.Controllers
 {
     public class ComicBooksController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Detail()
         {
             return View();
         }
