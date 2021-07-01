@@ -1,8 +1,26 @@
-﻿
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
 @{
     ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
 
-<p>Hello from our View Template!</p>
+<h1>@ViewBag.SeriesTitle</h1>
+<h2>Issue # @ViewBag.IssueNumber</h2>
+<h5>Description</h5>
+<div>@ViewBag.Description</div>
+
+@if(@ViewBag.artists.Length > 0)
+    {
+        <h5>Artists:</h5>
+        <div>
+            <ul>
+                @foreach (var artist in @ViewBag.Artists)
+                 {
+                        <li>@artist</li>
+                 }
+            </ul>
+        </div>
+ }
