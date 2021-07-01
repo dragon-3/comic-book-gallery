@@ -1,25 +1,26 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model ComicBookGallery.Models.ComicBook
 @{
-    ViewData["Title"] = "Detail";
+    ViewBag.Title = Model.DisplayText;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-<h1>@ViewBag.SeriesTitle</h1>
-<h2>Issue # @ViewBag.IssueNumber</h2>
+<h1>@Model.SeriesTitle</h1>
+<h2>Issue # @Model.IssueNumber</h2>
 <h5>Description</h5>
-<div>@ViewBag.Description</div>
+<div>@Model.DescriptionHtml</div>
 
-@if(@ViewBag.artists.Length > 0)
+@if(Model.Artists.Length > 0)
     {
         <h5>Artists:</h5>
         <div>
             <ul>
-                @foreach (var artist in @ViewBag.Artists)
+                @foreach (var artist in Model.Artists)
                  {
-                        <li>@artist</li>
+                        <li>@artist.Role: @artist.Name</li>
                  }
             </ul>
         </div>
